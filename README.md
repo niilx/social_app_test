@@ -34,10 +34,10 @@ This project follows the **MVC (Model-View-Controller) design pattern**, ensurin
 ---
 
 ## 📸 **Screenshots**
-<img alt="Login Screen" height="600" src="assets/screenshots/login.png" width="400"/>
-![Newsfeed](assets/screenshots/newsfeed.png)
-![Comments](assets/screenshots/comments.png)
-![Post](assets/screenshots/post.png)
+<img alt="Login Screen" height="1200" src="assets/screenshots/login.png" width="540"/>
+<img alt="Newsfeed Screen" height="1200" src="assets/screenshots/newsfeed.png" width="540"/>
+<img alt="Comments Screen" height="1200" src="assets/screenshots/comments.png" width="540"/>
+<img alt="Post Screen" height="1200" src="assets/screenshots/post.png" width="540"/>
 
 ## 🚀 **How to Run the App**
 Follow these steps to set up and run the app on your local machine:
