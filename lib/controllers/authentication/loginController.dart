@@ -93,7 +93,11 @@ class LoginController with ChangeNotifier {
   performLogout({context}) {
     loading = true;
     notifyListeners();
-
+    showDialog(
+        context: context,
+        builder: (BuildContext ctx) {
+          return Center(child: CircularProgressIndicator());
+        });
     NetworkManager.postDataToApi(
             apiUrl: ApiEnd.logoutUrl, token: ProjectResource.token)
         .then((response) {
@@ -101,6 +105,7 @@ class LoginController with ChangeNotifier {
         print(response.statusCode);
         print(response.body);
       }
+      Navigator.pop(context);
       try {
         loading = false;
         statusCodes = response.statusCode;

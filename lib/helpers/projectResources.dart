@@ -133,6 +133,36 @@ class ProjectResource {
       return Future.value(true);
     }
   }
+ static String timeAgo(DateTime date) {
+    Duration diff = DateTime.now().difference(date);
+
+    if (diff.inDays >= 2) {
+      return '${diff.inDays} days ago';
+    } else if (diff.inDays == 1) {
+      return 'Yesterday';
+    } else if (diff.inHours >= 1) {
+      return '${diff.inHours} hours ago';
+    } else if (diff.inMinutes >= 1) {
+      return '${diff.inMinutes} mins ago';
+    } else {
+      return 'Just now';
+    }
+  }
+ static String timeAgoShort(DateTime date) {
+    Duration diff = DateTime.now().difference(date);
+
+    if (diff.inDays >= 2) {
+      return '${diff.inDays}d';
+    } else if (diff.inDays == 1) {
+      return '1d';
+    } else if (diff.inHours >= 1) {
+      return '${diff.inHours}h';
+    } else if (diff.inMinutes >= 1) {
+      return '${diff.inMinutes}m';
+    } else {
+      return 'now';
+    }
+  }
 
   //Result Not Found View
   static getNoItemView(
