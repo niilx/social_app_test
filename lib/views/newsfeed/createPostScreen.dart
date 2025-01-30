@@ -35,7 +35,6 @@ class _CreatePostScreenState extends State<CreatePostScreen> {
     super.dispose();
   }
 
-
   @override
   Widget build(BuildContext context) {
     ProjectResource.setScreenSize(context);
@@ -44,7 +43,7 @@ class _CreatePostScreenState extends State<CreatePostScreen> {
         leading: TextButton(onPressed: (){
           Navigator.pop(context);
         }, child: Text("Close", style: TextStyle(
-          color: AppColors.greyColor
+          color: AppColors.blackColor.withAlpha(650)
         ),)),
         leadingWidth: ProjectResource.screenWidth * .2,
         centerTitle: true,
@@ -68,6 +67,7 @@ class _CreatePostScreenState extends State<CreatePostScreen> {
           Padding(
             padding: const EdgeInsets.all(16),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 TextFormField(
                   controller: newsfeedControllerVar.postController,
@@ -109,8 +109,48 @@ class _CreatePostScreenState extends State<CreatePostScreen> {
                   },
                 ),
                 SizedBox(height: ProjectResource.screenHeight * .02,),
+
+               !newsfeedControllerVar.showSetBg? InkWell(
+                 onTap: (){
+                   newsfeedController.toggleSetBg();
+                 },
+                 child: Container(
+                   padding: EdgeInsets.all(7),
+                    height: ProjectResource.fontSizeFactor * 2.7,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      color: AppColors.whiteColor,
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Icon(Icons.format_color_fill,
+                        size: ProjectResource.fontSizeFactor * 1.5,
+                        ),
+                        SizedBox(width: 7,),
+                        Text("Set Background",style: TextStyle(
+                          fontSize: ProjectResource.fontSizeFactor * .9
+                        ),)
+                      ],
+                    ),
+                  ),
+               ):
                 Row(
                   children: [
+                    InkWell(
+                      onTap: (){
+                        newsfeedController.toggleSetBg();
+                      },
+                      child: Container(
+                        height: ProjectResource.fontSizeFactor * 2.7,
+                        width: ProjectResource.fontSizeFactor * 2.7,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(5),
+                            color: AppColors.whiteColor,
+                        ),
+                        child: Icon(Icons.arrow_back_ios),
+                      ),
+                    ),
                     ...Iterable.generate(AppColors.gradientsColor.length,(index){
                       return Padding(
                         padding: const EdgeInsets.all(5.0),
@@ -119,13 +159,13 @@ class _CreatePostScreenState extends State<CreatePostScreen> {
                             newsfeedController.selectGradient(index);
                           },
                           child: Container(
-                            height: ProjectResource.fontSizeFactor * 2.2,
-                            width: ProjectResource.fontSizeFactor * 2.2,
+                            height: ProjectResource.fontSizeFactor * 2.7,
+                            width: ProjectResource.fontSizeFactor * 2.7,
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(5),
                                 gradient: AppColors.gradientsColor[index],
                               border: newsfeedControllerVar.selectedGradientBg == AppColors.feedBackGroundGradientColors[index] ?
-                                  Border.all(color: AppColors.blackColor.withAlpha(80), width: 4):null
+                                  Border.all(color: AppColors.blackColor.withAlpha(400), width: 4):null
                             ),
                           ),
                         ),
