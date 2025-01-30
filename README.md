@@ -34,7 +34,7 @@ This project follows the **MVC (Model-View-Controller) design pattern**, ensurin
 ---
 
 ## 📸 **Screenshots**
-![Login Screen](assets/screenshots/login.png)
+<img alt="Login Screen" height="600" src="assets/screenshots/login.png" width="400"/>
 ![Newsfeed](assets/screenshots/newsfeed.png)
 ![Comments](assets/screenshots/comments.png)
 ![Post](assets/screenshots/post.png)
