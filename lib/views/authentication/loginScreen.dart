@@ -72,7 +72,47 @@ class _LoginScreenState extends State<LoginScreen> {
             borderSide: BorderSide(
                 color: AppColors.backgroundColor.withOpacity(.5))),
         prefixStyle: TextStyle(color: Colors.black),
-        labelStyle: TextStyle(color: Colors.black),
+        labelStyle: TextStyle(color: Colors.white),
+      );
+    }
+
+    getInputDecorationPassword({String? hintText}){
+      return InputDecoration(
+        hintText: hintText,
+        hintStyle: TextStyle(color: AppColors.greyColor),
+        focusColor: AppColors.themeColor,
+        iconColor: AppColors.themeColor,
+        fillColor: AppColors.greyColor.withOpacity(.1),
+        filled: true,
+        suffixIcon: loginControllerVar.passwordVisible ?
+        InkWell(
+            onTap: (){
+              loginController.passVisibleChange();
+            },
+            child: Icon(Icons.visibility, color: AppColors.whiteColor.withAlpha(400))):
+        InkWell(
+            onTap: (){
+              loginController.passVisibleChange();
+            },
+            child: Icon(Icons.visibility_off, color: AppColors.whiteColor.withAlpha(400),)),
+        border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10),
+            borderSide: BorderSide(
+                color: AppColors.backgroundColor.withOpacity(.5))),
+        focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10),
+            borderSide: BorderSide(
+                color: AppColors.backgroundColor.withOpacity(.5))),
+        enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10),
+            borderSide: BorderSide(
+                color: AppColors.backgroundColor.withOpacity(.5))),
+        disabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10),
+            borderSide: BorderSide(
+                color: AppColors.backgroundColor.withOpacity(.5))),
+        prefixStyle: TextStyle(color: Colors.black),
+        labelStyle: TextStyle(color: Colors.white),
       );
     }
 
@@ -88,6 +128,7 @@ class _LoginScreenState extends State<LoginScreen> {
             autovalidateMode: AutovalidateMode.onUserInteraction,
             keyboardType: TextInputType.emailAddress,
             cursorColor: AppColors.greyColor,
+            style: TextStyle(color: AppColors.whiteColor),
             onEditingComplete: () {
               FocusScope.of(context)
                   .requestFocus(loginControllerVar.passwordControllerNode);
@@ -121,8 +162,9 @@ class _LoginScreenState extends State<LoginScreen> {
             },
             obscureText: loginControllerVar
                 .passwordVisible,
+            style: TextStyle(color: AppColors.whiteColor),
             cursorColor: AppColors.greyColor,
-            decoration: getInputDecoration(hintText: passwordHintText),
+            decoration: getInputDecorationPassword(hintText: passwordHintText),
             onSaved: (String? value) {
               // This optional block of code can be used to run
               // code when the user saves the form.
