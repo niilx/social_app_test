@@ -17,6 +17,8 @@ class AppColors {
   static const Color blackColor = Color(0xff000000);
   static const Color greyColor = Color(0xffc3c1c1);
   static const Color redColor = Color(0xff6e0000);
+  static const Color buttonColor = Color(0xff6662FF);
+  static const Color button2Color = Color(0xff1B1B35);
 
 
   //Gradients
